@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="myApp"> 
+ <head>
+  <script src="bower_components\angular\angular.js"></script>
+  <script src="Commande.js"></script>
+  <link rel="stylesheet" href="commande.css" />
+  
+  </head>
+  <body ng-controller="CommandeCtrl">
+    <div>
+    	<table class="class-center">
+    		<tr>
+	    		<th>R&eacutef&eacuterence</th>
+	    		<th>Libell&eacute</th>
+	    		<th>Prix Unitaire</th>
+	    		<th>Quant&eacute</th>
+	    		<th>Montant HT</th>
+	    		<th>Montant TTC</th>
+    		</tr>
+    		<tr ng-repeat="commande in commandes" ng-class="{boldClass:getTTC(commande)>=getBigTTC()}">
+    			
+    			<td><button ng-click="removeCommande($index)">X</button></td>
+	    		<td>{{commande.ref}}</td>
+	    		<td>{{commande.label}}</td>
+	    		<td>{{commande.prix | currency}}</td>
+	    		<td><input type="number" ng-model="commande.quantite" placeholder="Entrer la quantit&eacute"><br/></td>
+	    		<td>
+	    			{{getHT(commande) | currency}}
+	    		</td>
+	    		<td>
+					{{getTTC(commande) | currency}}
+				</td>
+    		</tr>
+    		<tr>
+    			<td></td>
+    			<td></td>
+	    		<td></td>
+	    		<td></td>
+	    		<td></td>
+	    		<td>{{totalHT() | currency}}</td>
+	    		<td>{{totalTTC() | currency}}</td>
+    		</tr>
+    		
+    	</table>
+    	<pre>{{commandes|json}}</pre>
+    </div>
+    <div>
+    <form ng-submit="addCommande()">
+    Reference : <input type="text" ng-model="toAdd.ref"/>
+    Libelle : <input type="text" ng-model="toAdd.label"/>
+    Prix : <input type="number" ng-model="toAdd.prix"/>
+    <input type="submit" value="Ajout"/>
+    
+    </form>
+    
+<!--     </div> -->
+<!--      <div> -->
+<!--     <form ng-submit="addCommande()"> -->
+<!--     Reference : <input type="text" ng-model="toAdd.ref"/> -->
+<!--     Libelle : <input type="text" ng-model="toAdd.label"/> -->
+<!--     Prix : <input type="number" ng-model="toAdd.prix"/> -->
+<!--     <input type="submit" value="Ajout"/> -->
+    
+<!--     </form> -->
+    
+    </div>
+  </body>
+</html>

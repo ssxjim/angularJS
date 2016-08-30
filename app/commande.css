@@ -1,0 +1,7 @@
+.class-center{
+	text-align : center;
+}
+
+tr.boldClass td {
+	font-weight : bold;
+}
