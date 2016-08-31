@@ -7,7 +7,7 @@ angular.module('jeu')
 			console.log(propositions);
 			
 			var lettres = '';
-				angular.forEach(mot, function(lettre){
+				angular.forEach(input, function(lettre){
 					lettre = lettre.toUpperCase();
 					if(propositions.indexOf(lettre)==-1){
 						lettres += '_' // += concatene

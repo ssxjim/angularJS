@@ -7,7 +7,7 @@ angular.module('jeu').controller('JeuCtrl', function($scope){
 
 
 	$scope.propose = function(){
-		propositions.push($scope.proposition.toUpperCase());
+		$scope.propositions.push($scope.proposition.toUpperCase());
 		$scope.proposition = undefined;
 		updateLettres();
 	}
@@ -16,7 +16,7 @@ angular.module('jeu').controller('JeuCtrl', function($scope){
 		var count = 0;
 		angular.forEach(propositions, function(lettre){
 			lettre = lettre.toUpperCase();
-			if(mot.toUpperCase().indexOf(lettre)==-1){
+			if($scope.mot.toUpperCase().indexOf(lettre)==-1){
 				count++;
 			}
 		});
