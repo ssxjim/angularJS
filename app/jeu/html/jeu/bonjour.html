@@ -1,0 +1,6 @@
+	<div >
+		<h2 > Bonjour {{recupNom | bijour}} !</h2>
+		<label for="ami">Veux tu être mon ami ?</label>
+		<input type="radio" name="ami" ng-value="true" ng-model="ami" ng-change="yes()"> Oui
+		<input type="radio" name="ami" ng-value="false" ng-model="ami" ng-change="no()"> Non
+	</div>

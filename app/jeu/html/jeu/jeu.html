@@ -1,0 +1,22 @@
+	
+
+
+
+<div ng-controller="JeuCtrl">
+<h3>Viens, on va jouer!!</h3>
+</br>
+{{mot | pendu}}
+
+<span ng-repeat="lettre in lettres track by $index" ng-bind="lettre"></span>
+
+<hr>
+
+<input type="text" ng-model="proposition" maxlength="1" ng-change="propose()">
+
+<hr>
+
+
+Score : {{getScore()}}
+
+<pre>{{lettres|json}}</pre>
+</div>
