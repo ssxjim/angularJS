@@ -7,6 +7,7 @@ angular.module('jeu').controller('rencontreCtrl', function($scope, $location){
 		}
 	}	
 	
+	
 //	$scope.toUpper(str)=function(){
 //		return str.toUppercase()
 //	}

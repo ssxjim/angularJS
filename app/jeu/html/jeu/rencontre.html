@@ -1,34 +1,21 @@
+
+	
 <div>
-		<h1>Ho, quelqu'un !</h1>
-		<label for="myName">Quel est ton nom ?</label>
-		<form ng-submit="ok()" name="myForm" novalidate>
-			<input type="text" 
-					name="myName" 
-					ng-model="user"
-					ng-minlength="3"
-          			ng-maxlength="15"
-					ng-patern="/^[a-zA-Z-]+$/">
-			<button type="submit">JE VALIDE</button>
-			
-			
-			
-			<pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
-			
-			
-			  <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
-    <div ng-message="required">You did not enter a field</div>
-    <div ng-message="minlength">Your field is too short</div>
-    <div ng-message="maxlength">Your field is too long</div>
-  </div>
-			
-			
-			<div ng-messages="myForm.myName.$error" style="color:maroon">
-				<div ng-message="minlength">...</div>
-			</div>
-			<div ng-messages="myForm.myName.$error" style="color:maroon">
-				<div ng-message-include="html/jeu/default-messages.html"></div>
-			</div>
-		</form>
-		
-		 
-	</div>
+	<h1>Ho, quelqu'un !</h1>
+	<label >Quel est ton nom ?</label>
+	<form ng-submit="ok()" name="myForm" novalidate>
+		<input type="text" 
+				name="myName" 
+				ng-model="user"
+				ng-minlength="3"
+         		ng-maxlength="15"
+         		ng-required="true"
+         		ng-pattern="/^[a-zA-Z-]+$/">
+				
+		<button type="submit">JE VALIDE</button>
+
+		<div ng-messages="myForm.myName.$error" style="color:maroon">
+			<div ng-messages-include="html/jeu/defaultMessage.html"></div>
+		</div>
+	</form>
+</div>
