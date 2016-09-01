@@ -1,4 +1,4 @@
-angular.module('jeu', [ 'ngRoute' ]).config(function($routeProvider) {
+angular.module('jeu', [ 'ngRoute', 'ngMessages' ]).config(function($routeProvider) {
 	
 	
 	$routeProvider.when('/rencontre', {

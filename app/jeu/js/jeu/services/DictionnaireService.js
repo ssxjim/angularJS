@@ -1,26 +1,20 @@
-angular.module('jeu').value('DictionnaireService',
-	{
-		getRandomMot : function(){
-			var list = ['Tartiflette', 'TARTE','Hello','Stagiaire'];
-			var index = Math.floor(Math.random() * list.length);
-			return list[index];
+angular.module('jeu').factory('DictionnaireService',function($http){
+		
+		var serverPromise = $http.get('./js/dictionnaire.json');
+		var promise = serverPromise.then(function(response){
+			return response.data;
+		}, function(){
+			console.warn('Erreur lors du chargement du fichier dictionnaire ...');
+			return ['TARTIFLETTE'];
+		});
+
+		return {
+			getRandomMot : function(){
+				var p1 = promise.then(function(list){
+					var index = Math.floor(Math.random() * list.length);
+					return list[index];
+				});
+				return p1;
+			}
 		}
 	});
-//
-//angular.module('jeu').factory('DictionnaireService',function(myServiceAnnexe){
-//			var list;
-//			$http.get("dictionnaire.json").success(function(data){
-//				list = data
-//			}).error(function(){
-//				console.warn('erreur lors du chargement')
-//			});
-//			
-//		return {
-//			getRandomMot : function(){
-//				console.log('list',list);
-//			}
-//			var index = Math.floor(Math.random() * list.length);
-//			return list[index];
-//		}
-//	}
-//});

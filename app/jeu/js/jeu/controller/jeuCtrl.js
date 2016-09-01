@@ -1,9 +1,11 @@
 angular.module('jeu').controller('JeuCtrl', function($scope, DictionnaireService, $timeout){
 	
 	
-	$timeout(function(){
-		$scope.mot = DictionnaireService.getRandomMot();
-	}, 800);
+	
+	var p1 = DictionnaireService.getRandomMot();
+	p1.then(function(mot){
+		$scope.mot = mot;
+	})
 	$scope.propositions = [];
 
 	$scope.propose = function(){
