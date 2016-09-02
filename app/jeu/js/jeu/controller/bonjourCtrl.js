@@ -1,4 +1,5 @@
-angular.module('jeu').controller('bonjourCtrl', function($scope, $routeParams, $location){
+angular.module('jeu').
+controller('bonjourCtrl', function($scope, $routeParams, $location){
 	
 	$scope.recupNom = $routeParams.nom;
 	

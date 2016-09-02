@@ -1,4 +1,5 @@
-angular.module('jeu').controller('rencontreCtrl', function($scope, $location){
+angular.module('jeu')
+.controller('rencontreCtrl', function($scope, $location){
 	
 	
 	$scope.ok = function(){
